@@ -13,7 +13,7 @@ server:
       - path: /V2
         url: https://services.odata.org
       ui5:
-        path:
+        path: 
         - /resources
         - /test-resources
         url: https://ui5.sap.com

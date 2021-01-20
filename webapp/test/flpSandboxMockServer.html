@@ -44,9 +44,9 @@
 			},
 			applications: {
 				"masterDetail-display": {
-					title: "sapui5-shop-fiori",
+					title: "SAPUI5-Shop-Fiori",
 					description: "A Fiori application.",
-					additionalInformation: "SAPUI5.Component=sapui5shopfiori",
+					additionalInformation: "SAPUI5.Component=SAPUI5ShopFiori.sapui5shopfiori",
 					applicationType: "URL",
 					url: "../"
 				}
@@ -62,15 +62,15 @@
 			data-sap-ui-libs="sap.m, sap.ushell, sap.ui.core, sap.f, sap.ui.comp, sap.ui.table, sap.suite.ui.generic.template, sap.ui.generic.app"
 			data-sap-ui-theme="sap_fiori_3"
 			data-sap-ui-compatVersion="edge"
-			data-sap-ui-flexibilityServices='[{"applyConnector":"sapui5shopfiori/test/changes_loader", "custom":true}]'
+			data-sap-ui-flexibilityServices='[{"applyConnector":"SAPUI5ShopFiori/sapui5shopfiori/test/changes_loader", "custom":true}]'
 			data-sap-ui-language="en"
-			data-sap-ui-resourceroots='{"sapui5shopfiori": "../"}'
+			data-sap-ui-resourceroots='{"SAPUI5ShopFiori.sapui5shopfiori": "../"}'
 			data-sap-ui-frameOptions="allow"> // NON-SECURE setting for testing environment
 	</script>
 
 	<script type="text/javascript">
 		sap.ui.getCore().attachInit(function() {
-			sap.ui.require(["sapui5shopfiori/localService/mockserver"],
+			sap.ui.require(["SAPUI5ShopFiori/sapui5shopfiori/localService/mockserver"],
 				function(server) {
 					// set up test service for local testing
 					server.init();

@@ -1,21 +1,21 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Tue Jan 19 2021 18:16:41 GMT+0300 (Moscow Standard Time)|
+|**Generation Date and Time**<br>Wed Jan 20 2021 17:51:09 GMT+0300 (Moscow Standard Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.0.25|
 |**Generation Platform**<br>Visual Studio Code|
 |**Floorplan Used**<br>List Report Object Page V2|
 |**Service Type**<br>OData Url|
-|**Service URL**<br>https://services.odata.org/(S(3blso0ml4qgl1ovkuqzcuhgi))/V2/OData/OData.svc/
+|**Service URL**<br>https://services.odata.org/V2/(S(4mh4qifbj1ioa3zmbva2gzeu))/OData/OData.svc/
 |**Module Name**<br>sapui5-shop-fiori|
-|**Application Title**<br>sapui5-shop-fiori|
-|**Namespace**<br>|
+|**Application Title**<br>SAPUI5-Shop-Fiori|
+|**Namespace**<br>SAPUI5_Shop_Fiori|
 |**UI5 Theme**<br>sap_fiori_3|
 |**UI5 Version**<br>Latest|
 |**Enable Telemetry**<br>True|
-|**Main Entity**<br>Categories|
-|**Navigation Entity**<br>Products|
+|**Main Entity**<br>Products|
+|**Navigation Entity**<br>Category|
 
 ## sapui5-shop-fiori
 

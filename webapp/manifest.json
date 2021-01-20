@@ -1,7 +1,7 @@
 {
     "_version": "1.29.0",
     "sap.app": {
-        "id": "sapui5shopfiori",
+        "id": "SAPUI5ShopFiori.sapui5shopfiori",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
@@ -15,7 +15,7 @@
         "resources": "resources.json",
         "dataSources": {
             "mainService": {
-                "uri": "/V2/(S(3blso0ml4qgl1ovkuqzcuhgi))/OData/OData.svc/",
+                "uri": "/V2/(S(4mh4qifbj1ioa3zmbva2gzeu))/OData/OData.svc/",
                 "type": "OData",
                 "settings": {
                     "annotations": [
@@ -88,18 +88,18 @@
                 "type": "sap.ui.model.resource.ResourceModel",
                 "uri": "i18n/i18n.properties"
             },
-            "i18n|sap.suite.ui.generic.template.ListReport|Categories": {
+            "i18n|sap.suite.ui.generic.template.ListReport|Products": {
                 "type": "sap.ui.model.resource.ResourceModel",
-                "uri": "i18n/ListReport/Categories/i18n.properties"
+                "uri": "i18n/ListReport/Products/i18n.properties"
             },
-            "i18n|sap.suite.ui.generic.template.ObjectPage|Categories": {
+            "i18n|sap.suite.ui.generic.template.ObjectPage|Products": {
                 "type": "sap.ui.model.resource.ResourceModel",
-                "uri": "i18n/ObjectPage/Categories/i18n.properties"
+                "uri": "i18n/ObjectPage/Products/i18n.properties"
             },
             
-            "i18n|sap.suite.ui.generic.template.ObjectPage|Products": {
+            "i18n|sap.suite.ui.generic.template.ObjectPage|Categories": {
               "type": "sap.ui.model.resource.ResourceModel",
-              "uri": "i18n/ObjectPage/Products/i18n.properties"
+              "uri": "i18n/ObjectPage/Categories/i18n.properties"
             },
             
             "": {
@@ -131,8 +131,8 @@
             "showDraftToggle": false
         },
         "pages": {
-            "ListReport|Categories": {
-                "entitySet": "Categories",
+            "ListReport|Products": {
+                "entitySet": "Products",
                 "component": {
                     "name": "sap.suite.ui.generic.template.ListReport",
                     "list": true,
@@ -148,16 +148,16 @@
                     }
                 },
                 "pages": {
-                    "ObjectPage|Categories": {
-                        "entitySet": "Categories",
+                    "ObjectPage|Products": {
+                        "entitySet": "Products",
                         "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
                         "component": {
                             "name": "sap.suite.ui.generic.template.ObjectPage"
                         },
                         "pages": {
-                          "ObjectPage|Products":{
-                            "navigationProperty": "Products",
-                            "entitySet": "Products",
+                          "ObjectPage|Category":{
+                            "navigationProperty": "Category",
+                            "entitySet": "Categories",
                             "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
                             "component": {
                               "name": "sap.suite.ui.generic.template.ObjectPage"
