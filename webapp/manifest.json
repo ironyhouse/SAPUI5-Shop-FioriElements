@@ -96,12 +96,12 @@
                 "type": "sap.ui.model.resource.ResourceModel",
                 "uri": "i18n/ObjectPage/Products/i18n.properties"
             },
-            
+
             "i18n|sap.suite.ui.generic.template.ObjectPage|Categories": {
               "type": "sap.ui.model.resource.ResourceModel",
               "uri": "i18n/ObjectPage/Categories/i18n.properties"
             },
-            
+
             "": {
                 "dataSource": "mainService",
                 "preload": true,
