@@ -87,6 +87,18 @@
                     </Record>
                 </Annotation>
 
+                <!-- Object Page Header Facets -->
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#Price"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#Rating"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
                 <!-- Object Page Sections (Facets) -->
                 <Annotation Term="UI.Facets">
                     <Collection>
@@ -104,6 +116,14 @@
                             <PropertyValue Property="Target" AnnotationPath="Supplier/Products/@UI.LineItem"/>
                         </Record>
                     </Collection>
+                </Annotation>
+
+                <!-- Price -->
+                <Annotation Term="UI.DataPoint" Qualifier="Price">
+                    <Record>
+                        <PropertyValue Property="Title" String="{@i18n>price}"/>
+                        <PropertyValue Property="Value" Path="Price"/>
+                    </Record>
                 </Annotation>
 
                 <!-- Rating -->
@@ -138,7 +158,7 @@
                 </Annotation>
             </Annotations>
 
-            <!-- Filters -->
+            <!-- Value help -->
              <Annotations Target="ODataDemo.Product/Name">
                 <Annotation Term="Common.ValueList">
                     <Record>
