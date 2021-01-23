@@ -106,6 +106,7 @@
                     </Collection>
                 </Annotation>
 
+                <!-- Rating -->
                 <Annotation Term="UI.DataPoint" Qualifier="Rating">
                     <Record>
                         <PropertyValue Property="Title" String="{@i18n>rating}"/>
@@ -115,6 +116,7 @@
                     </Record>
                 </Annotation>
 
+                <!-- Product table -->
                 <Annotation Term="UI.LineItem">
                     <Collection>
                         <!-- Existing columns -->
@@ -136,6 +138,49 @@
                 </Annotation>
             </Annotations>
 
+            <!-- Filters -->
+             <Annotations Target="ODataDemo.Product/Name">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="{@i18n>productName}" />
+                        <PropertyValue Property="CollectionPath" String="Products" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Name" />
+                                    <PropertyValue Property="ValueListProperty" String="Name" />
+                                </Record>
+
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Price" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ODataDemo.Product/Price">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="{@i18n>productPrice}" />
+                        <PropertyValue Property="CollectionPath" String="Products" />
+                        <PropertyValue Property="SearchSupported" Bool="false" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Name" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Price" />
+                                    <PropertyValue Property="ValueListProperty" String="Price" />
+                                </Record>
+
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
 
             <!-- Hide Filters -->
             <!-- Product -->
