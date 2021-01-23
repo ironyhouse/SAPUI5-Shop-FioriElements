@@ -15,7 +15,7 @@
         "resources": "resources.json",
         "dataSources": {
             "mainService": {
-                "uri": "/V2/(S(4mh4qifbj1ioa3zmbva2gzeu))/OData/OData.svc/",
+                "uri": "/V2/(S(2gwcjh1jiuyd4xqcgnazufr5))/OData/OData.svc/",
                 "type": "OData",
                 "settings": {
                     "annotations": [

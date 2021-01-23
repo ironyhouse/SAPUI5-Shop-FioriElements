@@ -8,7 +8,7 @@
     <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
         <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
     </edmx:Reference>
-    <edmx:Reference Uri="/V2/(S(4mh4qifbj1ioa3zmbva2gzeu))/OData/OData.svc/$metadata">
+    <edmx:Reference Uri="/V2/(S(2gwcjh1jiuyd4xqcgnazufr5))/OData/OData.svc/$metadata">
         <edmx:Include Namespace="ODataDemo"/>
     </edmx:Reference>
     <edmx:DataServices>
@@ -59,7 +59,7 @@
                 <Annotation Term="UI.SelectionFields">
                     <Collection>
                         <PropertyPath>Name</PropertyPath>
-                        <PropertyPath>Rating</PropertyPath>
+                        <PropertyPath>Price</PropertyPath>
                     </Collection>
                 </Annotation>
 
@@ -82,6 +82,8 @@
                                 <PropertyValue Property="Value" Path="Description"/>
                             </Record>
                         </PropertyValue>
+                        <!-- Object Page Product Image -->
+                        <PropertyValue Property="TypeImageUrl" String=""/>
                     </Record>
                 </Annotation>
 
@@ -89,12 +91,12 @@
                 <Annotation Term="UI.Facets">
                     <Collection>
                         <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="Label" String="{@i18n>category}"/>
+                            <PropertyValue Property="Label" String="{@i18n>aboutCategory}"/>
                             <!-- <PropertyValue Property="ID" String="Rating"/> -->
                             <PropertyValue Property="Target" AnnotationPath="Category/@UI.FieldGroup#AboutCategory" />
                         </Record>
                         <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="Label" String="{@i18n>suppliers}"/>
+                            <PropertyValue Property="Label" String="{@i18n>aboutSuppliers}"/>
                             <!-- <PropertyValue Property="ID" String="CategoryName"/> -->
                             <PropertyValue Property="Target" AnnotationPath="Supplier/@UI.FieldGroup#AboutSupplier" />
                         </Record>
@@ -134,6 +136,41 @@
                 </Annotation>
             </Annotations>
 
+
+            <!-- Hide Filters -->
+            <!-- Product -->
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ODataDemo.Product/ID">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ODataDemo.Product/Rating">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ODataDemo.Product/Description">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ODataDemo.Product/DiscontinuedDate">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ODataDemo.Product/ReleaseDate">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <!-- Category -->
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ODataDemo.Category/Name">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ODataDemo.Category/ID">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <!-- Supplier -->
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ODataDemo.Supplier/Name">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ODataDemo.Supplier/ID">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ODataDemo.Supplier/Concurrency">
+                <Annotation Term="UI.HiddenFilter"/>
+            </Annotations>
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>
