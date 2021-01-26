@@ -5,9 +5,6 @@
     <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
         <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
     </edmx:Reference>
-    <!-- <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
-        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
-    </edmx:Reference> -->
     <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
         <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
     </edmx:Reference>
@@ -35,6 +32,7 @@
                     </Record>
                 </Annotation>
             </Annotations>
+
             <!-- Supplier -->
             <Annotations Target="ODataDemo.Supplier">
                 <Annotation Term="UI.FieldGroup" Qualifier="AboutSupplier">
@@ -45,9 +43,34 @@
                                     <PropertyValue Property="Label" String="{@i18n>supplierName}"/>
                                     <PropertyValue Property="Value" Path="Name"/>
                                 </Record>
-                                <Record Type="UI.DataFieldForAnnotation">
-                                    <PropertyValue Property="Label" String="{@i18n>supplierAddress}"/>
-                                    <PropertyValue Property="Target" AnnotationPath="@Communication.Address" />
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.FieldGroup" Qualifier="SupplierAddress">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="{@i18n>supplierStreet}"/>
+                                    <PropertyValue Property="Value" Path="Address/Street"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="{@i18n>supplierCity}"/>
+                                    <PropertyValue Property="Value" Path="Address/City"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="{@i18n>supplierState}"/>
+                                    <PropertyValue Property="Value" Path="Address/State"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="{@i18n>supplierZipCode}"/>
+                                    <PropertyValue Property="Value" Path="Address/ZipCode"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="{@i18n>supplierCountry}"/>
+                                    <PropertyValue Property="Value" Path="Address/Country"/>
                                 </Record>
                             </Collection>
                         </PropertyValue>
@@ -74,15 +97,13 @@
                 </Annotation>
             </Annotations>
 
-
-
             <!-- Product -->
             <Annotations Target="ODataDemo.Product">
 
-
+                <!-- Group -->
                 <!-- <Annotation Term="UI.FieldGroup" >
                     <Record Type="UI.FieldGroupType">
-                        <PropertyValue Label="value" Data="Price"/>
+                        <PropertyValue Label="value" Data="Rating"/>
                     </Record>
                 </Annotation> -->
                 <Annotation Term="UI.PresentationVariant">
@@ -108,8 +129,6 @@
                     </Record>
                 </Annotation>
 
-
-
                 <!-- List Report Page Search -->
                 <Annotation Term="UI.SelectionFields">
                     <Collection>
@@ -117,7 +136,6 @@
                         <PropertyPath>Price</PropertyPath>
                     </Collection>
                 </Annotation>
-
                 <!-- Object Page Header -->
                 <Annotation Term="UI.HeaderInfo" >
                     <Record Type="UI.HeaderInfoType">
@@ -141,7 +159,6 @@
                         <PropertyValue Property="TypeImageUrl" String=""/>
                     </Record>
                 </Annotation>
-
                 <!-- Object Page Header Facets -->
                 <Annotation Term="UI.HeaderFacets">
                     <Collection>
@@ -157,7 +174,6 @@
                         </Record>
                     </Collection>
                 </Annotation>
-
                 <!-- Price -->
                 <Annotation Term="UI.DataPoint" Qualifier="Price">
                     <Record>
@@ -165,7 +181,6 @@
                         <PropertyValue Property="Value" Path="Price"/>
                     </Record>
                 </Annotation>
-
                 <!-- Rating -->
                 <Annotation Term="UI.DataPoint" Qualifier="Rating">
                     <Record>
@@ -175,37 +190,43 @@
                         <PropertyValue Property="Visualization" EnumMember="UI.VisualizationType/Rating"/>
                     </Record>
                 </Annotation>
-
                 <!-- Object Page Sections (Facets) -->
-                <Annotation Term="UI.Facets">
-                    <Collection>
-                        <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="Label" String="{@i18n>aboutCategory}"/>
-                            <PropertyValue Property="ID" String="AboutCategory"/>
-                            <PropertyValue Property="Target" AnnotationPath="Category/@UI.FieldGroup#AboutCategory" />
-                        </Record>
-                        <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="Label" String="{@i18n>aboutSuppliers}"/>
-                            <PropertyValue Property="ID" String="AboutSupplier"/>
-                            <PropertyValue Property="Target" AnnotationPath="Supplier/@UI.FieldGroup#AboutSupplier" />
-                        </Record>
-                        <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="Target" AnnotationPath="Supplier/@Communication.Address" />
-                        </Record>
-                        <!-- <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="Target" AnnotationPath="Supplier/Products/@UI.LineItem"/>
-                        </Record> -->
-                    </Collection>
-                </Annotation>
+                <!-- https://help.sap.com/viewer/468a97775123488ab3345a0c48cadd8f/1709.001/en-US/facfea09018d4376acaceddb7e3f03b6.html -->
+                    <Annotation Term="UI.Facets">
+                        <Collection>
+                            <Record Type="UI.ReferenceFacet">
+                                <PropertyValue Property="Label" String="{@i18n>aboutCategory}"/>
+                                <PropertyValue Property="ID" String="AboutCategory"/>
+                                <PropertyValue Property="Target" AnnotationPath="Category/@UI.FieldGroup#AboutCategory" />
+                            </Record>
+                            <Record Type="UI.CollectionFacet">
+                                <PropertyValue Property="Label" String="{@i18n>aboutSuppliers}"/>
+                                <PropertyValue Property="ID" String="AboutSupplier"/>
+                                <PropertyValue Property="Facets" >
+                                    <Collection>
+                                        <Record Type="UI.ReferenceFacet">
+                                            <PropertyValue Property="Label" String="{@i18n>supplierName}"/>
+                                            <PropertyValue Property="Target" AnnotationPath="Supplier/@UI.FieldGroup#AboutSupplier" />
+                                        </Record>
+                                        <Record Type="UI.ReferenceFacet">
+                                            <PropertyValue Property="Label" String="{@i18n>supplierAddress}"/>
+                                            <PropertyValue Property="Target" AnnotationPath="Supplier/@UI.FieldGroup#SupplierAddress" />
+                                        </Record>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                            <!-- <Record Type="UI.ReferenceFacet">
+                                <PropertyValue Property="Label" String="{@i18n>supplierProducts}"/>
+                                <PropertyValue Property="ID" String="SupplierProducts"/>
+                                <PropertyValue Property="Target" AnnotationPath="Supplier/Products/@UI.LineItem"/>
+                            </Record> -->
+                        </Collection>
+                    </Annotation>
 
                 <!-- Product table -->
                 <Annotation Term="UI.LineItem">
                     <Collection>
                         <!-- Existing columns -->
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="Name"/>
-                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
-                        </Record>
                         <!-- Price column -->
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Price"/>

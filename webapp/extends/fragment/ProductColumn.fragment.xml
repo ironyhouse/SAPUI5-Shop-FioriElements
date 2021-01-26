@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+  xmlns="sap.m">
+  <Column>
+    <!-- Column Label -->
+    <Text text="{i18n>name}" />
+    <customData>
+      <core:CustomData key="p13nData" value='\{"columnKey": "Name", "leadingProperty":"Name", "additionalProperty":"Description", "columnIndex" : "0"}' />
+    </customData>
+  </Column>
+  <Column>
+    <!-- Column Label -->
+    <Text text="{i18n>price}" />
+    <customData>
+      <core:CustomData key="p13nData" value='\{"columnKey": "Price", "leadingProperty":"Price", "columnIndex" : "1"}' />
+    </customData>
+  </Column>
+</core:FragmentDefinition>

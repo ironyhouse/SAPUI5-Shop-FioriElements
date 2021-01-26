@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+  xmlns="sap.m">
+    <ObjectIdentifier
+      title="{Name}"
+      text="{Description}"/>
+    <ObjectNumber
+      class="sapUiSmallMarginBottom"
+      number="{Price}"
+      state="{= ${Price} > 0 ? 'Success' : 'Error'}"
+      unit="USD" />
+</core:FragmentDefinition>

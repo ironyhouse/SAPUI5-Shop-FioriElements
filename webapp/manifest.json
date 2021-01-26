@@ -116,7 +116,32 @@
             }
         },
         "extends": {
-            "extensions": {}
+            "extensions": {
+                "sap.ui.viewExtensions": {
+                    "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+                        "ResponsiveTableColumnsExtension|Products": {
+                                "className": "sap.ui.core.Fragment",
+                                "fragmentName": "SAPUI5ShopFiori.sapui5shopfiori.extends.fragment.ProductColumn",
+                                "type": "XML"
+                        },
+                        "ResponsiveTableCellsExtension|Products": {
+                                "className": "sap.ui.core.Fragment",
+                                "fragmentName": "SAPUI5ShopFiori.sapui5shopfiori.extends.fragment.ProductCell",
+                                "type": "XML"
+                        }
+                    }
+                },
+                "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+                    "AfterFacet|Products|AboutSupplier": {
+                        "type": "XML",
+                        "className": "sap.ui.core.Fragment",
+                        "fragmentName": "SAPUI5ShopFiori.sapui5shopfiori.extends.fragment.SupplierSection",
+                        "sap.ui.generic.app": {
+                            "title": "{{supplierProducts}}"
+                        }
+                    }
+                }
+            }
         },
         "contentDensities": {
             "compact": true,
