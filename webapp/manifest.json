@@ -96,12 +96,10 @@
                 "type": "sap.ui.model.resource.ResourceModel",
                 "uri": "i18n/ObjectPage/Products/i18n.properties"
             },
-
             "i18n|sap.suite.ui.generic.template.ObjectPage|Categories": {
-              "type": "sap.ui.model.resource.ResourceModel",
-              "uri": "i18n/ObjectPage/Categories/i18n.properties"
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/ObjectPage/Categories/i18n.properties"
             },
-
             "": {
                 "dataSource": "mainService",
                 "preload": true,
@@ -120,24 +118,24 @@
                 "sap.ui.viewExtensions": {
                     "sap.suite.ui.generic.template.ListReport.view.ListReport": {
                         "ResponsiveTableColumnsExtension|Products": {
-                                "className": "sap.ui.core.Fragment",
-                                "fragmentName": "SAPUI5ShopFiori.sapui5shopfiori.extends.fragment.ProductColumn",
-                                "type": "XML"
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "SAPUI5ShopFiori.sapui5shopfiori.extends.fragment.ProductColumn",
+                            "type": "XML"
                         },
                         "ResponsiveTableCellsExtension|Products": {
-                                "className": "sap.ui.core.Fragment",
-                                "fragmentName": "SAPUI5ShopFiori.sapui5shopfiori.extends.fragment.ProductCell",
-                                "type": "XML"
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "SAPUI5ShopFiori.sapui5shopfiori.extends.fragment.ProductCell",
+                            "type": "XML"
                         }
-                    }
-                },
-                "sap.suite.ui.generic.template.ObjectPage.view.Details": {
-                    "AfterFacet|Products|AboutSupplier": {
-                        "type": "XML",
-                        "className": "sap.ui.core.Fragment",
-                        "fragmentName": "SAPUI5ShopFiori.sapui5shopfiori.extends.fragment.SupplierSection",
-                        "sap.ui.generic.app": {
-                            "title": "{{supplierProducts}}"
+                    },
+                    "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+                        "AfterFacet|Products|AboutSupplier": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "SAPUI5ShopFiori.sapui5shopfiori.extends.fragment.ProductSuppliers",
+                            "type": "XML",
+                            "sap.ui.generic.app": {
+                                "title": "{{supplierProducts}}"
+                            }
                         }
                     }
                 }
@@ -169,6 +167,9 @@
                             "dateSettings": {
                                 "useDateRange": true
                             }
+                        },
+                        "tableSettings": {
+                            "multiSelect": true
                         }
                     }
                 },
@@ -180,14 +181,21 @@
                             "name": "sap.suite.ui.generic.template.ObjectPage"
                         },
                         "pages": {
-                          "ObjectPage|Category":{
-                            "navigationProperty": "Category",
-                            "entitySet": "Categories",
-                            "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
-                            "component": {
-                              "name": "sap.suite.ui.generic.template.ObjectPage"
+                            "ObjectPage|Category": {
+                                "navigationProperty": "Category",
+                                "entitySet": "Categories",
+                                "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+                                "component": {
+                                    "name": "sap.suite.ui.generic.template.ObjectPage"
+                                }
+                            },
+                            "ObjectPage|Categories": {
+                                "component": {
+                                    "name": "sap.suite.ui.generic.template.ObjectPage"
+                                },
+                                "entitySet": "Categories",
+                                "navigationProperty": "Category"
                             }
-                          }
                         }
                     }
                 }

@@ -108,11 +108,6 @@
                 </Annotation> -->
                 <Annotation Term="UI.PresentationVariant">
                     <Record Type="UI.PresentationVariantType">
-                        <PropertyValue Property="Visualizations">
-                            <Collection>
-                                <AnnotationPath>@UI.LineItem</AnnotationPath>
-                            </Collection>
-                        </PropertyValue>
                         <!-- <PropertyValue Property="SortOrder">
                             <Collection>
                                 <Record>
@@ -124,6 +119,13 @@
                         <PropertyValue Property="GroupBy">
                             <Collection>
                                 <PropertyPath>Rating</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TotalBy" />
+                        <PropertyValue Property="Total" />
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.LineItem</AnnotationPath>
                             </Collection>
                         </PropertyValue>
                     </Record>
@@ -191,7 +193,6 @@
                     </Record>
                 </Annotation>
                 <!-- Object Page Sections (Facets) -->
-                <!-- https://help.sap.com/viewer/468a97775123488ab3345a0c48cadd8f/1709.001/en-US/facfea09018d4376acaceddb7e3f03b6.html -->
                     <Annotation Term="UI.Facets">
                         <Collection>
                             <Record Type="UI.ReferenceFacet">
@@ -215,11 +216,6 @@
                                     </Collection>
                                 </PropertyValue>
                             </Record>
-                            <!-- <Record Type="UI.ReferenceFacet">
-                                <PropertyValue Property="Label" String="{@i18n>supplierProducts}"/>
-                                <PropertyValue Property="ID" String="SupplierProducts"/>
-                                <PropertyValue Property="Target" AnnotationPath="Supplier/Products/@UI.LineItem"/>
-                            </Record> -->
                         </Collection>
                     </Annotation>
 
@@ -258,27 +254,6 @@
                                 <Record Type="Common.ValueListParameterDisplayOnly">
                                     <PropertyValue Property="ValueListProperty" String="Price" />
                                 </Record>
-                            </Collection>
-                        </PropertyValue>
-                    </Record>
-                </Annotation>
-            </Annotations>
-            <Annotations Target="ODataDemo.Product/Price">
-                <Annotation Term="Common.ValueList">
-                    <Record>
-                        <PropertyValue Property="Label" String="{@i18n>productPrice}" />
-                        <PropertyValue Property="CollectionPath" String="Products" />
-                        <PropertyValue Property="SearchSupported" Bool="false" />
-                        <PropertyValue Property="Parameters">
-                            <Collection>
-                                <Record Type="Common.ValueListParameterDisplayOnly">
-                                    <PropertyValue Property="ValueListProperty" String="Name" />
-                                </Record>
-                                <Record Type="Common.ValueListParameterOut">
-                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Price" />
-                                    <PropertyValue Property="ValueListProperty" String="Price" />
-                                </Record>
-
                             </Collection>
                         </PropertyValue>
                     </Record>
