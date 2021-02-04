@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar" xmlns:core="sap.ui.core">
+    <smartfilterbar:ControlConfiguration key="CustomFilterRating" index="99" visibleInAdvancedArea="true" label="{i18n>rating}" groupId="_BASIC">
+        <smartfilterbar:customControl>
+            <ComboBox id="CustomFilterRatingInput">
+                <core:Item key="0" text="All"/>
+                <core:Item key="1" text="1"/>
+                <core:Item key="2" text="2"/>
+                <core:Item key="3" text="3"/>
+                <core:Item key="4" text="4"/>
+                <core:Item key="5" text="5"/>
+            </ComboBox>
+        </smartfilterbar:customControl>
+    </smartfilterbar:ControlConfiguration>
+</core:FragmentDefinition>

@@ -100,12 +100,6 @@
             <!-- Product -->
             <Annotations Target="ODataDemo.Product">
 
-                <!-- Group -->
-                <!-- <Annotation Term="UI.FieldGroup" >
-                    <Record Type="UI.FieldGroupType">
-                        <PropertyValue Label="value" Data="Rating"/>
-                    </Record>
-                </Annotation> -->
                 <Annotation Term="UI.PresentationVariant">
                     <Record Type="UI.PresentationVariantType">
                         <!-- <PropertyValue Property="SortOrder">
@@ -265,9 +259,9 @@
             <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ODataDemo.Product/ID">
                 <Annotation Term="UI.HiddenFilter"/>
             </Annotations>
-            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ODataDemo.Product/Rating">
+            <!-- <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ODataDemo.Product/Rating">
                 <Annotation Term="UI.HiddenFilter"/>
-            </Annotations>
+            </Annotations> -->
             <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ODataDemo.Product/Description">
                 <Annotation Term="UI.HiddenFilter"/>
             </Annotations>

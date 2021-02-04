@@ -88,18 +88,6 @@
                 "type": "sap.ui.model.resource.ResourceModel",
                 "uri": "i18n/i18n.properties"
             },
-            "i18n|sap.suite.ui.generic.template.ListReport|Products": {
-                "type": "sap.ui.model.resource.ResourceModel",
-                "uri": "i18n/ListReport/Products/i18n.properties"
-            },
-            "i18n|sap.suite.ui.generic.template.ObjectPage|Products": {
-                "type": "sap.ui.model.resource.ResourceModel",
-                "uri": "i18n/ObjectPage/Products/i18n.properties"
-            },
-            "i18n|sap.suite.ui.generic.template.ObjectPage|Categories": {
-                "type": "sap.ui.model.resource.ResourceModel",
-                "uri": "i18n/ObjectPage/Categories/i18n.properties"
-            },
             "": {
                 "dataSource": "mainService",
                 "preload": true,
@@ -113,25 +101,40 @@
                 }
             }
         },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
         "extends": {
             "extensions": {
+                "sap.ui.controllerExtensions": {
+                    "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+                      "controllerName": "SAPUI5ShopFiori.sapui5shopfiori.ext.controller.ListReportExtension"
+                    }
+                },
                 "sap.ui.viewExtensions": {
                     "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+                        "controllerName": "SAPUI5ShopFiori.sapui5shopfiori.ext.controller.ListReportExtension",
                         "ResponsiveTableColumnsExtension|Products": {
                             "className": "sap.ui.core.Fragment",
-                            "fragmentName": "SAPUI5ShopFiori.sapui5shopfiori.extends.fragment.ProductColumn",
+                            "fragmentName": "SAPUI5ShopFiori.sapui5shopfiori.ext.fragment.ProductColumn",
                             "type": "XML"
                         },
                         "ResponsiveTableCellsExtension|Products": {
                             "className": "sap.ui.core.Fragment",
-                            "fragmentName": "SAPUI5ShopFiori.sapui5shopfiori.extends.fragment.ProductCell",
+                            "fragmentName": "SAPUI5ShopFiori.sapui5shopfiori.ext.fragment.ProductCell",
+                            "type": "XML"
+                        },
+                        "SmartFilterBarControlConfigurationExtension|Products": {
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "SAPUI5ShopFiori.sapui5shopfiori.ext.fragment.CustomFilter",
                             "type": "XML"
                         }
                     },
                     "sap.suite.ui.generic.template.ObjectPage.view.Details": {
                         "AfterFacet|Products|AboutSupplier": {
                             "className": "sap.ui.core.Fragment",
-                            "fragmentName": "SAPUI5ShopFiori.sapui5shopfiori.extends.fragment.ProductSuppliers",
+                            "fragmentName": "SAPUI5ShopFiori.sapui5shopfiori.ext.fragment.ProductSuppliers",
                             "type": "XML",
                             "sap.ui.generic.app": {
                                 "title": "{{supplierProducts}}"
@@ -140,10 +143,6 @@
                     }
                 }
             }
-        },
-        "contentDensities": {
-            "compact": true,
-            "cozy": true
         }
     },
     "sap.ui.generic.app": {
@@ -160,6 +159,9 @@
                     "name": "sap.suite.ui.generic.template.ListReport",
                     "list": true,
                     "settings": {
+                        "dataLoadSettings": {
+                            "loadDataOnAppLaunch": "always"
+                        },
                         "condensedTableLayout": true,
                         "smartVariantManagement": true,
                         "enableTableFilterInPageVariant": true,
