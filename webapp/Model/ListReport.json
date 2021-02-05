@@ -1,0 +1,13 @@
+{
+  "ProductForm": {
+    "ID": null,
+    "Name": null,
+    "Price": null,
+    "Rating": null,
+    "Description": null,
+    "ReleaseDate": null,
+    "DiscontinuedDate": null
+  },
+  "Category": null,
+  "bCreateButtonEnabled": false
+}

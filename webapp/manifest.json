@@ -15,7 +15,7 @@
         "resources": "resources.json",
         "dataSources": {
             "mainService": {
-                "uri": "/V2/(S(2gwcjh1jiuyd4xqcgnazufr5))/OData/OData.svc/",
+                "uri": "/V2/(S(0a43byz4eogixa5rqlfxogre))/OData/OData.svc/",
                 "type": "OData",
                 "settings": {
                     "annotations": [
@@ -99,6 +99,10 @@
                         "sap-value-list": "none"
                     }
                 }
+            },
+            "ListReport": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "Model/ListReport.json"
             }
         },
         "contentDensities": {
@@ -109,7 +113,21 @@
             "extensions": {
                 "sap.ui.controllerExtensions": {
                     "sap.suite.ui.generic.template.ListReport.view.ListReport": {
-                      "controllerName": "SAPUI5ShopFiori.sapui5shopfiori.ext.controller.ListReportExtension"
+                        "controllerName": "SAPUI5ShopFiori.sapui5shopfiori.ext.controller.ListReportExtension",
+                        "sap.ui.generic.app": {
+                            "Products": {
+                                "EntitySet": "Products",
+                                "Actions": {
+                                    "onOpenProductCreationForm": {
+                                        "id": "onOpenProductCreationForm",
+                                        "text": "{{createProduct}}",
+                                        "press": "onOpenProductCreationForm",
+                                        "global": false,
+                                        "requiresSelection": false
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 "sap.ui.viewExtensions": {

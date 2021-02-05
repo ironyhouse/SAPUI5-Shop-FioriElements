@@ -1,0 +1,69 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+  <Dialog title="{i18n>productFormLabel}">
+    <form:SimpleForm >
+        <Label text="{i18n>productName}"/>
+        <Input value="{
+                path: 'ListReport>/ProductForm/Name',
+                type: 'sap.ui.model.type.String',
+                constraints: {minLength: 1}
+            }"
+            required="true"
+            change="onFormValid"/>
+        <Label text="{i18n>productPrice}"/>
+        <Input value="{
+                path: 'ListReport>/ProductForm/Price',
+                type: 'sap.ui.model.type.String',
+                constraints: {minLength: 1}
+            }"
+            type="Number"
+            required="true"
+            change="onFormValid"/>
+        <Label text="{i18n>productRating}"/>
+        <Input value="{
+                path: 'ListReport>/ProductForm/Rating',
+                type: 'sap.ui.model.type.Integer',
+                constraints: {minimum: 1, maximum: 5}
+            }"
+            type="Number"
+            required="true"
+            change="onFormValid"/>
+        <Label text="{i18n>ProductDescription}"/>
+        <Input value="{path: 'ListReport>/ProductForm/Description'}" change="onFormValid"/>
+        <Label text="{i18n>ProductRelease}"/>
+        <DatePicker value="{
+                path: 'ListReport>/ProductForm/ReleaseDate',
+                type: 'sap.ui.model.type.Date'
+            }"
+            required="true"
+            change="onFormValid"/>
+        <Label text="{i18n>productCategory}" />
+        <Select selectedKey="{
+                path: 'ListReport>/Category',
+                type: 'sap.ui.model.type.Integer',
+                constraints: {minLength: 1}
+            }"
+            items="{/Categories}"
+            forceSelection="false"
+            change="onFormValid">
+            <core:Item text="{Name}" key="{ID}"/>
+        </Select>
+        <Label text="{i18n>productDiscontinued}"/>
+        <DatePicker
+            value="{
+                path: 'ListReport>/ProductForm/DiscontinuedDate',
+                type: 'sap.ui.model.type.Date'
+            }"
+            change="onFormValid"/>
+    </form:SimpleForm>
+    <buttons>
+        <Button text="{i18n>create}"
+            type="Emphasized"
+            enabled="{ListReport>/bCreateButtonEnabled}"
+            press="onCreateProductFormPress"/>
+        <Button text="{i18n>cancel}"
+            press="onCancelProductFormPress"/>
+    </buttons>
+  </Dialog>
+</core:FragmentDefinition>

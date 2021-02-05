@@ -9,7 +9,7 @@
 | **Floorplan Used**<br>List Report Object Page V2                                         |
 | **Service Type**<br>OData Url                                                            |
 
-|**Service URL**<br>https://services.odata.org/V2/(S(2gwcjh1jiuyd4xqcgnazufr5))/OData/OData.svc/
+|**Service URL**<br>https://services.odata.org/V2/(S(0a43byz4eogixa5rqlfxogre))/OData/OData.svc/
 |**Module Name**<br>sapui5-shop-fiori|
 |**Application Title**<br>SAPUI5-Shop-Fiori|
 |**Namespace**<br>SAPUI5_Shop_Fiori|
@@ -25,7 +25,7 @@ A Fiori application.
 
 ### Starting the generated app
 
-- This app has been generated using the SAP Fiori tools - App Generator, as part of the SAP Fiori tools suite. In order to launch the generated app, simply run the following from the generated app root folder:
+-   This app has been generated using the SAP Fiori tools - App Generator, as part of the SAP Fiori tools suite. In order to launch the generated app, simply run the following from the generated app root folder:
 
 ```
     npm start
