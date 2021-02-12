@@ -1,4 +1,7 @@
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
     <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
         <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
     </edmx:Reference>
@@ -20,7 +23,7 @@
                         <PropertyValue Property="Data">
                             <Collection>
                                 <Record Type="UI.DataField">
-                                    <PropertyValue Property="Label" String="{@i18n>categoryName}"/>
+                                    <PropertyValue Property="Label" String="{@i18n>category}"/>
                                     <PropertyValue Property="Value" Path="Name"/>
                                 </Record>
                                 <Record Type="UI.DataField">
@@ -217,6 +220,18 @@
                 <Annotation Term="UI.LineItem">
                     <Collection>
                         <!-- Existing columns -->
+                        <!-- Category -->
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>category}"/>
+                            <PropertyValue Property="Value" Path="Category/Name"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <!-- Name column -->
+                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>supplierName}"/>
+                            <PropertyValue Property="Value" Path="Supplier/Name"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
                         <!-- Price column -->
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Price"/>
@@ -253,6 +268,19 @@
                     </Record>
                 </Annotation>
             </Annotations>
+
+            <Annotations Target="ODataDemo.DemoService/Products">
+                <Annotation Term="Capabilities.InsertRestrictions">
+		                  <Record>
+                            <PropertyValue Property="Insertable" Bool="false"/>
+		                 </Record>
+		        </Annotation>
+                <!-- <Annotation Term="Capabilities.DeleteRestrictions">
+                        <Record>
+                            <PropertyValue Property="Deletable"  Bool="false"/>
+                        </Record>
+		        </Annotation> -->
+	        </Annotations>
 
             <!-- Hide Filters -->
             <!-- Product -->

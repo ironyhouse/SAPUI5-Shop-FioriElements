@@ -38,14 +38,14 @@
             }"
             required="true"
             change="onFormValid"/>
-        <Label text="{i18n>productCategory}" />
+        <Label text="{i18n>productCategory}" required="true" />
         <Select selectedKey="{
                 path: 'ListReport>/Category',
                 type: 'sap.ui.model.type.Integer',
                 constraints: {minLength: 1}
             }"
             items="{/Categories}"
-            forceSelection="false"
+            forceSelection="true"
             change="onFormValid">
             <core:Item text="{Name}" key="{ID}"/>
         </Select>

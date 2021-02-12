@@ -11,7 +11,7 @@
     <!-- Column Label -->
     <Text text="{i18n>price}" />
     <customData>
-      <core:CustomData key="p13nData" value='\{"columnKey": "Price", "leadingProperty":"Price", "columnIndex" : "1"}' />
+      <core:CustomData key="p13nData" value='\{"columnKey": "Price", "leadingProperty":"Price", "columnIndex" : "2"}' />
     </customData>
   </Column>
 </core:FragmentDefinition>

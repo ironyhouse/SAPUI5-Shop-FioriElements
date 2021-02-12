@@ -124,6 +124,13 @@
                                         "press": "onOpenProductCreationForm",
                                         "global": false,
                                         "requiresSelection": false
+                                    },
+                                    "onOpenDeleteProductPopover": {
+                                        "id": "onOpenDeleteProductPopover",
+                                        "text": "{{deleteProduct}}",
+                                        "press": "onOpenDeleteProductPopover",
+                                        "global": false,
+                                        "requiresSelection": false
                                     }
                                 }
                             }

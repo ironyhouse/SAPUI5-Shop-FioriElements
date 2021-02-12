@@ -14,9 +14,9 @@ sap.ui.define(
             },
 
             /**
-             * @public
              * Filter Table by custom rating filter control.
              * @param {sap.ui.base.Event} oEvent - Event object.
+             * @public
              */
             onBeforeRebindTableExtension: function (oEvent) {
                 var oBindingParams = oEvent.getParameter("bindingParams");
@@ -50,8 +50,8 @@ sap.ui.define(
             },
 
             /**
-             * @public
              * Show Product Form after press.
+             * @public
              */
             onOpenProductCreationForm: function () {
                 var oView = this.getView(),
@@ -79,6 +79,10 @@ sap.ui.define(
                 }
             },
 
+            /**
+             *  This method creates new Product.
+             *  @public
+             */
             onCreateProductFormPress: function () {
                 var oModel = this.getView().getModel(),
                     oProductModel = this.getView().getModel("ListReport"),
@@ -115,11 +119,19 @@ sap.ui.define(
                 this.ProductFormDialog.close();
             },
 
+            /**
+             *  This method closes product popover.
+             *  @public
+             */
             onCancelProductFormPress: function () {
                 this.ProductFormDialog.close();
                 this._clearProductForm();
             },
 
+            /**
+             * This method checks product form validation.
+             *  @public
+             */
             onFormValid: function () {
                 var oProductModel = this.getView().getModel("ListReport"),
                     oProductForm = oProductModel.getProperty("/ProductForm"),
@@ -133,7 +145,10 @@ sap.ui.define(
                 // check empty value
                 for (let key in oProductForm) {
                     if (
-                        (!oProductForm[key] && key !== "Description" && key !== "DiscontinuedDate"&& key !== "ID")
+                        !oProductForm[key] &&
+                        key !== "Description" &&
+                        key !== "DiscontinuedDate" &&
+                        key !== "ID"
                     ) {
                         bCheckForm = false;
                     }
@@ -143,6 +158,10 @@ sap.ui.define(
                 oProductModel.setProperty("/bCreateButtonEnabled", bCheckForm);
             },
 
+            /**
+             *  This method clears product form.
+             *  @private
+             */
             _clearProductForm: function () {
                 var oProductModel = this.getView().getModel("ListReport"),
                     aFormKeys = Object.keys(
@@ -155,6 +174,55 @@ sap.ui.define(
 
                 oProductModel.setProperty("/category", null);
                 oProductModel.setProperty("/bCreateButtonEnabled", false);
+            },
+
+            /**
+             * Show "Delete Product" popover.
+             * @public
+             */
+            onOpenDeleteProductPopover: function (oEvent) {
+                var sMessage = this.getView()
+                    .getModel("i18n")
+                    .getResourceBundle()
+                    .getText("productsMessageDelete");
+                // show confirmation
+                MessageBox.confirm(sMessage, {
+                    onClose: function (oAction) {
+                        if (oAction === "OK") {
+                            this._onDeleteProduct();
+                        }
+                    }.bind(this),
+                });
+            },
+
+            /**
+             * This method delete Product.
+             *  @private
+             */
+            _onDeleteProduct: function (oEvent) {
+                var oModel = this.getView().getModel(),
+                    oProductTable = this.byId(
+                        "SAPUI5ShopFiori.sapui5shopfiori::sap.suite.ui.generic.template.ListReport.view.ListReport::Products--responsiveTable"
+                    ),
+                    aSelectedItems = oProductTable.getSelectedItems(),
+                    oTableItems = oProductTable.getBinding("items"),
+                    oI18n = this.getView().getModel("i18n").getResourceBundle();
+
+                if (aSelectedItems.length) {
+                    aSelectedItems.forEach(function (item) {
+                        var sPath = item.getBindingContext().getPath();
+
+                        oModel.remove(sPath, {
+                            success: function () {
+                                oI18n.getText("productDeleteMessageSuccessful");
+                            },
+                            error: function () {
+                                oI18n.getText("productDeleteMessageError");
+                            },
+                        });
+                    });
+                    oTableItems.refresh(true);
+                }
             },
         };
     }
